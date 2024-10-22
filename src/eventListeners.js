@@ -1,6 +1,7 @@
 import { add, randomNumber, Person, printNumbers, printAfter3Seconds } from "./arrowFunctions.js";
 import { potConduir, compararNums, classificarNumero, trobarMaxim, parOImpar } from "./ternary.js";
 import { processar, subtract, multiply, divide, calculadora, esperarISaludar, processarElements, includeInPhrase, processarCadena, printString, encryptString } from "./callbacks.js";
+import { combineArrays, suma, createObject, copyObject, modifyCopy, assignVariables, showData, mergeObjects } from "./restSpread.js";
 
 const callbackMap = {
   potConduir,
@@ -151,5 +152,142 @@ export const setupEventListeners = () => {
     const callbackName = document.getElementById("processStringCallback").value;
     const callback = callbackMap[callbackName];
     processarCadena(phrase, callback);
+  });
+
+  document.getElementById("joinArraysButton").addEventListener("click", () => {
+    const array1 = document
+      .getElementById("array1")
+      .value.split(",")
+      .map((element) => element.trim());
+    const array2 = document
+      .getElementById("array2")
+      .value.split(",")
+      .map((element) => element.trim());
+    console.log(combineArrays(array1, array2));
+  });
+
+  document.getElementById("sumAllNumbersButton").addEventListener("click", () => {
+    const numbers = document
+      .getElementById("numbersToSum")
+      .value.split(",")
+      .map((num) => parseInt(num));
+    console.log(suma(...numbers));
+  });
+
+  // Rest and spread exercises event listeners
+
+  let original = null;
+  let copy = null;
+
+  const buttonCreate = document.getElementById("createObjectButton");
+  const buttonCopy = document.getElementById("copyObjectButton");
+  const buttonModifyCopy = document.getElementById("modifyCopyButton");
+  const buttonCheckOriginal = document.getElementById("checkOriginalButton");
+
+  const nameInput = document.getElementById("objectName");
+  const ageInput = document.getElementById("objectAge");
+
+  buttonCreate.addEventListener("click", () => {
+    const name = nameInput.value;
+    const age = parseInt(ageInput.value);
+    original = createObject(name, age);
+    console.log("El primer objecte creat és:", original);
+
+    toggleButtons([buttonCreate], [buttonCopy]);
+    toggleInputs(true);
+  });
+
+  // Copying the object
+  buttonCopy.addEventListener("click", () => {
+    copy = copyObject(original);
+    console.log("La copia creada és:", copy);
+
+    toggleButtons([buttonCopy], [buttonModifyCopy]);
+    toggleInputs(false);
+    populateInputs(copy.name, copy.age);
+  });
+
+  // Modifying the copied object
+  buttonModifyCopy.addEventListener("click", () => {
+    const copyName = nameInput.value;
+    const copyAge = parseInt(ageInput.value);
+    copy = modifyCopy(copyName, copyAge, copy);
+    console.log("La copia modificada és:", copy);
+
+    toggleButtons([buttonModifyCopy], [buttonCheckOriginal]);
+  });
+
+  // Check out the original object
+  buttonCheckOriginal.addEventListener("click", () => {
+    console.log("L'objecte original és:", original);
+    console.log("L'objecte copiat i modificat és:", copy);
+
+    resetForm();
+  });
+
+  // Helper to show/hide buttons
+  const toggleButtons = (hideButtons, showButtons) => {
+    hideButtons.forEach((button) => button.classList.add("d-none"));
+    showButtons.forEach((button) => button.classList.remove("d-none"));
+  };
+
+  // Helper to disable/enable inputs
+  const toggleInputs = (disabled) => {
+    nameInput.disabled = disabled;
+    ageInput.disabled = disabled;
+  };
+
+  // Helper to populate input fields with values
+  const populateInputs = (name, age) => {
+    nameInput.value = name;
+    ageInput.value = age;
+  };
+
+  // Reset the form and state
+  const resetForm = () => {
+    toggleButtons([buttonCheckOriginal], [buttonCreate]);
+    toggleInputs(false);
+    nameInput.value = original.name;
+    ageInput.value = original.age;
+  };
+
+  // Destructuring exercise
+  const buttonDestructure = document.getElementById("destructureButton");
+  buttonDestructure.addEventListener("click", () => {
+    const array = document
+      .getElementById("arrayToDestructure")
+      .value.split(",")
+      .map((element) => element.trim());
+
+    assignVariables(array);
+  });
+
+  // Array as argument
+  const buttonArrayArgument = document.getElementById("arrayArgumentButton");
+  buttonArrayArgument.addEventListener("click", () => {
+    const name = document.getElementById("nameArray").value;
+    const age = parseInt(document.getElementById("ageArray").value);
+    const city = document.getElementById("cityArray").value;
+    const array = [name, age, city];
+
+    console.log("Array passat com a argument:", array);
+    showData(...array);
+  });
+
+  // Object as argument
+  const buttonObjectArgument = document.getElementById("objectArgumentButton");
+  buttonObjectArgument.addEventListener("click", () => {
+    const personalData = {
+      name: document.getElementById("nameObject").value,
+      age: parseInt(document.getElementById("ageObject").value),
+    };
+    console.log("Dades personals:", personalData);
+
+    const professionalData = {
+      profession: document.getElementById("professionObject").value,
+      experience: document.getElementById("experienceObject").value,
+    };
+    console.log("Dades professionals:", professionalData);
+    console.log("Dades fusionades:", mergeObjects(personalData, professionalData));
   });
 };

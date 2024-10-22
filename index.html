@@ -174,6 +174,79 @@
           </div>
         </div>
       </div>
+
+      <div class="row d-flex justify-content-center">
+        <h5 class="text-center text-secondary mt-5">Rest & Spread Operators</h5>
+        <div class="col-lg-6 d-flex flex-column gap-4 border rounded p-4">
+          <!-- Using the spread operator to create a third array -->
+          <div>
+            <div class="input-group">
+              <input type="text" id="array1" value="Farina, Sucre" class="form-control" />
+              <input type="text" id="array2" value="Oli, Aigua" class="form-control" />
+              <button id="joinArraysButton" class="btn btn-outline-secondary">Juntar arrays</button>
+            </div>
+            <div class="form-text text-muted">Introdueix elements separats per comes.</div>
+          </div>
+
+          <!-- Using the rest operator to sum all the numbers -->
+          <div>
+            <div class="input-group">
+              <input type="text" id="numbersToSum" value="1, 7, 45, 54" class="form-control" />
+              <button id="sumAllNumbersButton" class="btn btn-outline-secondary">Sumar tot</button>
+            </div>
+            <div class="form-text text-muted">Introdueix números a sumar separats per comes.</div>
+          </div>
+
+          <!-- Copy object 1 to object 2 -->
+          <div>
+            <div class="input-group">
+              <input type="text" id="objectName" value="Anna" class="form-control" placeholder="Nom" />
+              <input type="number" id="objectAge" value="34" class="form-control" placeholder="Edat" />
+              <button id="createObjectButton" class="btn btn-outline-secondary">Crear Objecte</button>
+              <button id="copyObjectButton" class="btn btn-outline-secondary d-none">Copiar</button>
+              <button id="modifyCopyButton" class="btn btn-outline-secondary d-none">Modificar la Copia</button>
+              <button id="checkOriginalButton" class="btn btn-outline-secondary d-none">Veure l'Original</button>
+            </div>
+            <div class="form-text text-muted">Crea un objecte, copia'l, modifica la còpia i comprova que l'original no ha estat modificat.</div>
+          </div>
+
+          <!-- Destructuring and Rest Operator -->
+          <div>
+            <div class="input-group">
+              <input type="text" id="arrayToDestructure" value="new, old, green, white, blue, one" class="form-control" />
+              <button id="destructureButton" class="btn btn-outline-secondary">Assigna variables</button>
+            </div>
+            <div class="form-text text-muted">Assigna els primers dos elements a variables, i la resta dels elements a una tercera variable.</div>
+          </div>
+
+          <!-- Pass array as argument -->
+          <div>
+            <div class="input-group">
+              <input type="text" id="nameArray" value="Juan" class="form-control" />
+              <input type="text" id="ageArray" value="23" class="form-control" />
+              <input type="text" id="cityArray" value="Madrid" class="form-control" />
+              <button id="arrayArgumentButton" class="btn btn-outline-secondary">Passar arguments</button>
+            </div>
+            <div class="form-text text-muted">Convertim camps en array i cridem la funció utilitzant l'operador spread.</div>
+          </div>
+
+          <!-- Merge two objects by spread operator -->
+          <div class="d-flex flex-column gap-2">
+            <div class="input-group">
+              <input type="text" id="nameObject" value="Jana" class="form-control" />
+              <input type="text" id="ageObject" value="43" class="form-control" />
+              <span class="input-group-text">anys</span>
+            </div>
+            <div class="input-group">
+              <input type="text" id="professionObject" value="Arquitecta" class="form-control" />
+              <input type="text" id="experienceObject" value="15" class="form-control" />
+              <span class="input-group-text">anys</span>
+            </div>
+            <button id="objectArgumentButton" class="btn btn-outline-secondary">Fusionar dades personals i professionals</button>
+            <div class="form-text text-muted">Fusionem dades personals i professionals amb l'operador spread.</div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script type="module">
