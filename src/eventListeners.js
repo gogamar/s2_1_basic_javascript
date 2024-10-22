@@ -3,6 +3,7 @@ import { potConduir, compararNums, classificarNumero, trobarMaxim, parOImpar } f
 import { processar, subtract, multiply, divide, calculadora, esperarISaludar, processarElements, includeInPhrase, processarCadena, printString, encryptString } from "./callbacks.js";
 import { combineArrays, suma, createObject, copyObject, modifyCopy, assignVariables, showData, mergeObjects } from "./restSpread.js";
 import { squareArray, onlyEvenNumbers, findHigherTen, reduceToSum, filterAndSum, everyHigherTen, someHigherTen } from "./arrayTransformations.js";
+import { printForEach, printForOf, printKeyValue, printTillFive, printIndex } from "./arrayLoops.js";
 
 const callbackMap = {
   potConduir,
@@ -306,8 +307,6 @@ export const setupEventListeners = () => {
   buttonEvenNumbers.addEventListener("click", () => {
     const arrayText = document.getElementById("arrayToEven").innerText;
     const array = JSON.parse(arrayText);
-
-    // console.log(`Aquests números son parells: ${onlyEvenNumbers(array)}`);
     console.log("Aquests números son parells:", onlyEvenNumbers(array));
   });
 
@@ -346,5 +345,56 @@ export const setupEventListeners = () => {
 
     console.log("Tots els números son majors a 10?", everyHigherTen(array));
     console.log("Algun número és major a 10?", someHigherTen(array));
+  });
+
+  // Print names with forEach and for...of
+  const arrayText = document.getElementById("arrayNames").innerText;
+  const names = JSON.parse(arrayText);
+
+  const buttonPrintForEach = document.getElementById("printForEachButton");
+  buttonPrintForEach.addEventListener("click", () => {
+    console.log("Noms amb forEach:");
+    printForEach(names);
+  });
+
+  const buttonPrintForOf = document.getElementById("printForOfButton");
+  buttonPrintForOf.addEventListener("click", () => {
+    console.log("Noms amb for...of:");
+    printForOf(names);
+  });
+
+  // Filter new array of only even numbers
+  const buttonEvenOnly = document.getElementById("evenOnlyButton");
+  buttonEvenOnly.addEventListener("click", () => {
+    const arrayText = document.getElementById("arrayOnlyEven").innerText;
+    const array = JSON.parse(arrayText);
+    console.log("Aquests números son parells:", onlyEvenNumbers(array));
+  });
+
+  // Print key-value pairs with for...in
+  const keyValueButton = document.getElementById("keyValueButton");
+  keyValueButton.addEventListener("click", () => {
+    const objText = document.getElementById("objKeyValue").innerText;
+    const obj = JSON.parse(objText);
+    console.log("Claus i valors amb for...in:");
+    printKeyValue(obj);
+  });
+
+  // Print numbers till 5
+  const buttonPrintTillFive = document.getElementById("printTillFiveButton");
+  buttonPrintTillFive.addEventListener("click", () => {
+    const arrayText = document.getElementById("arrayPrintFive").innerText;
+    const array = JSON.parse(arrayText);
+    console.log("Números fins a 5:");
+    printTillFive(array);
+  });
+
+  // Print elements with index
+  const buttonPrintIndex = document.getElementById("printIndexButton");
+  buttonPrintIndex.addEventListener("click", () => {
+    const arrayText = document.getElementById("arrayPrintIndex").innerText;
+    const array = JSON.parse(arrayText);
+    console.log("Elements amb index:");
+    printIndex(array);
   });
 };
