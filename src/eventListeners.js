@@ -1,5 +1,19 @@
 import { add, randomNumber, Person, printNumbers, printAfter3Seconds } from "./arrowFunctions.js";
 import { potConduir, compararNums, classificarNumero, trobarMaxim, parOImpar } from "./ternary.js";
+import { processar, subtract, multiply, divide, calculadora, esperarISaludar, processarElements, includeInPhrase, processarCadena, printString, encryptString } from "./callbacks.js";
+
+const callbackMap = {
+  potConduir,
+  classificarNumero,
+  add,
+  subtract,
+  multiply,
+  divide,
+  printAfter3Seconds,
+  includeInPhrase,
+  printString,
+  encryptString,
+};
 
 export const setupEventListeners = () => {
   document.getElementById("addButton").addEventListener("click", () => {
@@ -85,5 +99,57 @@ export const setupEventListeners = () => {
       .value.split(",")
       .map((num) => parseInt(num));
     parOImpar(numbers);
+  });
+
+  document.getElementById("processarButton").addEventListener("click", () => {
+    const num = parseInt(document.getElementById("numToProcess").value);
+    const callbackName = document.getElementById("callbackName").value;
+    const callback = callbackMap[callbackName];
+
+    if (callback) {
+      const result = processar(num, callback);
+      console.log(result);
+    } else {
+      console.error("Cap callback seleccionat");
+    }
+  });
+
+  document.getElementById("calculadoraButton").addEventListener("click", () => {
+    const num1 = parseInt(document.getElementById("numMath1").value);
+    const num2 = parseInt(document.getElementById("numMath2").value);
+    const callbackName = document.getElementById("mathCallback").value;
+    const callback = callbackMap[callbackName];
+
+    if (callback) {
+      const result = calculadora(num1, num2, callback);
+      console.log(result);
+    } else {
+      console.error("Cap callback seleccionat");
+    }
+  });
+
+  document.getElementById("esperarSaludarButton").addEventListener("click", () => {
+    const nom = document.getElementById("nomPersona").value;
+    const person = new Person(nom);
+    // Arrow function to keep the context of 'this'
+    const callback = () => person.greet();
+    esperarISaludar(nom, callback);
+  });
+
+  document.getElementById("processElementsButton").addEventListener("click", () => {
+    const elements = document
+      .getElementById("elsToProcess")
+      .value.split(",")
+      .map((element) => element.trim());
+    const callbackName = document.getElementById("processElementsCallback").value;
+    const callback = callbackMap[callbackName];
+    processarElements(elements, callback);
+  });
+
+  document.getElementById("processStringButton").addEventListener("click", () => {
+    const phrase = document.getElementById("stringToProcess").value;
+    const callbackName = document.getElementById("processStringCallback").value;
+    const callback = callbackMap[callbackName];
+    processarCadena(phrase, callback);
   });
 };
