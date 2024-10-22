@@ -14,3 +14,15 @@
 
 - **Type of Exercise**: Working with callback functions in synchronous and asynchronous contexts.
 - **Practice**: Invoking functions as parameters, handling arrays, and timing with callbacks.
+
+#### Exercici 1.4: Rest and Spread
+
+- **Type of Exercise**: Working with rest and spread operators in JavaScript.
+- **Practice**: Utilizing array and object manipulation techniques.
+
+- **Spread Operator**: Merging arrays into a new one.
+- **Rest Operator**: Accepting variable numbers of function arguments.
+- **Object Cloning**: Creating copies of objects without modifying originals.
+- **Destructuring with Rest**: Extracting values from an array while collecting the rest.
+- **Spread in Functions**: Passing array elements as function arguments.
+- **Object Merging**: Combining properties from multiple objects.
