@@ -119,7 +119,7 @@
           <div class="input-group">
             <input type="number" id="numToProcess" value="5" class="form-control" />
             <select class="form-select" id="callbackName">
-              <option value="potConduir">Pot conduir?</option>
+              <option value="potConduir">Puc conduir?</option>
               <option value="classificarNumero">Classificar Número</option>
             </select>
             <button id="processarButton" class="btn btn-outline-secondary">Processar</button>
@@ -346,10 +346,55 @@
           </div>
         </div>
       </div>
+
+      <div class="row d-flex justify-content-center">
+        <h5 class="text-center text-secondary mt-5">Promises & Async/Await</h5>
+        <div class="col-lg-6 d-flex flex-column gap-4 border rounded p-4">
+          <!-- Create a Promise  -->
+          <div class="d-flex flex-column gap-3">
+            <div class="input-group">
+              <span class="input-group-text">Click to show 'Hello World'</span>
+              <button id="helloWorldButton" class="btn btn-outline-secondary">Mostrar</button>
+            </div>
+            <span class="alert alert-info d-none" id="loading">¡Espera! Sólo tardaré 2 segundos...</span>
+            <span class="alert alert-success d-none" id="showHelloWorld"></span>
+          </div>
+
+          <!-- Promise with reject - check input  -->
+          <div class="d-flex flex-column gap-3">
+            <div class="input-group">
+              <input type="text" id="inputCheck" value="Hola, com estàs?" class="form-control" placeholder="Escriu Hola" />
+              <button id="checkInputButton" class="btn btn-outline-secondary">Comprovar</button>
+            </div>
+            <span class="alert alert-info d-none" id="loadingCheck">¡Espera! Sólo tardaré 2 segundos...</span>
+            <span class="alert alert-success d-none" id="showSuccess"></span>
+            <span class="alert alert-danger d-none" id="showError"></span>
+          </div>
+
+          <!-- Create a Promise with async / await -->
+          <div class="d-flex flex-column gap-3">
+            <div class="input-group">
+              <span class="input-group-text">Click to show 'Hello World'</span>
+              <button id="helloAsyncButton" class="btn btn-outline-secondary">Mostrar</button>
+            </div>
+            <span class="alert alert-info d-none" id="loadingAsync">¡Espera! Sólo tardaré 2 segundos...</span>
+            <span class="alert alert-success d-none" id="showAsyncSuccess"></span>
+            <span class="alert alert-danger d-none" id="showAsyncError"></span>
+          </div>
+
+          <!-- Promise.all to wait for 2 promises -->
+          <div class="d-flex flex-column gap-3">
+            <div class="input-group">
+              <span class="input-group-text">Esperar que es realitzin dos promeses</span>
+              <button id="promiseAllButton" class="btn btn-outline-secondary">Començar ara</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script type="module">
-      import { setupEventListeners } from "./src/eventListeners.js";
+      import { setupEventListeners } from "./src/listeners/eventListeners.js";
 
       document.addEventListener("DOMContentLoaded", () => {
         setupEventListeners();
