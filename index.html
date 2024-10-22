@@ -4,15 +4,119 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>S2.1. Exercicis bàsics JavaScript</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
   </head>
-  <body>
-    <h2>Check the Console for Output</h2>
-    <script src="src/arrowFunctions.js"></script>
-    <script src="src/ternary.js"></script>
-    <script src="src/callbacks.js"></script>
-    <script src="src/restSpread.js"></script>
-    <script src="src/arrayTransformations.js"></script>
-    <script src="src/arrayLoops.js"></script>
-    <script src="src/promisesAsyncAwait.js"></script>
+
+  <body class="bg-light">
+    <div class="container-fluid my-5">
+      <h4 class="text-center text-secondary mb-4">Obre la consola del navegador per veure el resultat</h4>
+      <div class="row d-flex justify-content-center">
+        <h5 class="text-center text-secondary mt-5">Arrow Functions</h5>
+        <div class="col-lg-6 d-flex flex-column gap-4 border rounded p-4">
+          <!-- Sum -->
+          <div class="input-group">
+            <input type="number" id="num1" value="5" class="form-control" />
+            <input type="number" id="num2" value="3" class="form-control" />
+            <button id="addButton" class="btn btn-outline-secondary">Sumar</button>
+          </div>
+
+          <!-- Generate random number -->
+          <div class="input-group">
+            <span class="input-group-text">Generar un número a l'atzar</span>
+            <button id="randomButton" class="btn btn-outline-secondary">Generar</button>
+          </div>
+
+          <!-- Greet -->
+          <div class="input-group">
+            <span class="input-group-text">Canvia el nom</span>
+            <input type="text" id="personName" value="Marc" class="form-control" />
+            <button id="greetButton" class="btn btn-outline-secondary">Saluda</button>
+          </div>
+
+          <!-- Print numbers from array -->
+          <div>
+            <div class="input-group">
+              <span class="input-group-text">Des de</span>
+              <input type="number" id="fromNumber" value="3" class="form-control" />
+              <span class="input-group-text">Fins a</span>
+              <input type="number" id="toNumber" value="5" class="form-control" />
+              <button id="printNumbersButton" class="btn btn-outline-secondary">Imprimeix</button>
+            </div>
+            <div class="form-text text-muted">Imprimeix tots els números des del primer fins al segon número seleccionat.</div>
+          </div>
+
+          <!-- Print message after 3 seconds-->
+          <div>
+            <div class="input-group">
+              <span class="input-group-text">Canvia el missatge</span>
+              <input type="text" id="messageText" value="Hola" class="form-control" />
+              <button id="waitButton" class="btn btn-outline-secondary">Imprimeix</button>
+            </div>
+            <div class="form-text text-muted">El missatge s'imprimirà després de 3 segons.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row d-flex justify-content-center">
+        <h5 class="text-center text-secondary mt-5">Operador Ternary</h5>
+        <div class="col-lg-6 d-flex flex-column gap-4 border rounded p-4">
+          <!-- Check if can drive -->
+          <div>
+            <div class="input-group">
+              <span class="input-group-text">La teva edat</span>
+              <input type="number" id="age" value="18" class="form-control" />
+              <button id="potConduirButton" class="btn btn-outline-secondary">Comprovar</button>
+            </div>
+            <div class="form-text text-muted">Entra la teva edat per saber si pots conduir.</div>
+          </div>
+          <!-- Compare 2 numbers -->
+          <div>
+            <div class="input-group">
+              <input type="number" id="number1" value="7" class="form-control" />
+              <input type="number" id="number2" value="10" class="form-control" />
+              <button id="compararNumsButton" class="btn btn-outline-secondary">Comparar</button>
+            </div>
+            <div class="form-text text-muted">Compara per saber quin número es més gran.</div>
+          </div>
+
+          <!-- Positive, negative or 0 -->
+          <div>
+            <div class="input-group">
+              <input type="number" id="n" value="7" class="form-control" />
+              <button id="classificarNumButton" class="btn btn-outline-secondary">Comprovar</button>
+            </div>
+            <div class="form-text text-muted">Comprova si el número es positiu, negatiu o 0.</div>
+          </div>
+
+          <!-- Find the highest number -->
+          <div>
+            <div class="input-group">
+              <input type="number" id="nummaxa" value="2" class="form-control" />
+              <input type="number" id="nummaxb" value="8" class="form-control" />
+              <input type="number" id="nummaxc" value="1" class="form-control" />
+              <button id="maxNumButton" class="btn btn-outline-secondary">Comprovar</button>
+            </div>
+            <div class="form-text text-muted">Comprova quin número es el més gran.</div>
+          </div>
+
+          <!-- Check array for odd or even numbers -->
+          <div>
+            <div class="input-group">
+              <input type="text" id="numbers" value="1, 110, 12, 25" class="form-control" />
+              <button id="parOImparButton" class="btn btn-outline-secondary">Comprova</button>
+            </div>
+            <div class="form-text text-muted">Introdueix números separats per comes i comprova si són imparells o parells.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="module">
+      import { setupEventListeners } from "./src/eventListeners.js";
+
+      document.addEventListener("DOMContentLoaded", () => {
+        setupEventListeners();
+      });
+    </script>
   </body>
 </html>
