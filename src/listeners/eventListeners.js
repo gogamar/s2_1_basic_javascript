@@ -1,9 +1,10 @@
-import { add, randomNumber, Person, printNumbers, printAfter3Seconds } from "./arrowFunctions.js";
-import { potConduir, compararNums, classificarNumero, trobarMaxim, parOImpar } from "./ternary.js";
-import { processar, subtract, multiply, divide, calculadora, esperarISaludar, processarElements, includeInPhrase, processarCadena, printString, encryptString } from "./callbacks.js";
-import { combineArrays, suma, createObject, copyObject, modifyCopy, assignVariables, showData, mergeObjects } from "./restSpread.js";
-import { squareArray, onlyEvenNumbers, findHigherTen, reduceToSum, filterAndSum, everyHigherTen, someHigherTen } from "./arrayTransformations.js";
-import { printForEach, printForOf, printKeyValue, printTillFive, printIndex } from "./arrayLoops.js";
+import { add, randomNumber, Person, printNumbers, printAfter3Seconds } from "../modules/arrowFunctions.js";
+import { potConduir, compararNums, classificarNumero, trobarMaxim, parOImpar } from "../modules/ternary.js";
+import { processar, subtract, multiply, divide, calculadora, esperarISaludar, processarElements, includeInPhrase, processarCadena, printString, encryptString } from "../modules/callbacks.js";
+import { combineArrays, suma, createObject, copyObject, modifyCopy, assignVariables, showData, mergeObjects } from "../modules/restSpread.js";
+import { squareArray, onlyEvenNumbers, findHigherTen, reduceToSum, filterAndSum, everyHigherTen, someHigherTen } from "../modules/arrayTransformations.js";
+import { printForEach, printForOf, printKeyValue, printTillFive, printIndex } from "../modules/arrayLoops.js";
+import { createPromise, checkInputPromise, fetchHelloWorld, runPromises } from "../modules/promisesAsyncAwait.js";
 
 const callbackMap = {
   potConduir,
@@ -396,5 +397,73 @@ export const setupEventListeners = () => {
     const array = JSON.parse(arrayText);
     console.log("Elements amb index:");
     printIndex(array);
+  });
+
+  // Promise exercise print "Hello, world" after 2 seconds
+  const buttonHelloWorld = document.getElementById("helloWorldButton");
+  buttonHelloWorld.addEventListener("click", () => {
+    const showHelloWorld = document.getElementById("showHelloWorld");
+    const loading = document.getElementById("loading");
+    loading.classList.remove("d-none");
+    createPromise().then((response) => {
+      loading.classList.add("d-none");
+      showHelloWorld.classList.remove("d-none");
+      showHelloWorld.innerText = response;
+      console.log(response);
+    });
+  });
+
+  // Promise exercise check if input is "Hola"
+  const buttonCheckInput = document.getElementById("checkInputButton");
+  buttonCheckInput.addEventListener("click", () => {
+    const input = document.getElementById("inputCheck").value;
+    const loading = document.getElementById("loadingCheck");
+    const successMessage = document.getElementById("showSuccess");
+    const errorMessage = document.getElementById("showError");
+    successMessage.classList.add("d-none");
+    errorMessage.classList.add("d-none");
+
+    loading.classList.remove("d-none");
+    checkInputPromise(input)
+      .then((response) => {
+        loading.classList.add("d-none");
+        successMessage.classList.remove("d-none");
+        successMessage.innerText = response;
+        console.log(response);
+      })
+      .catch((error) => {
+        loading.classList.add("d-none");
+        errorMessage.classList.remove("d-none");
+        errorMessage.innerText = error;
+        document.getElementById("showError").innerText = error;
+        console.error(error);
+      });
+  });
+
+  // Async/Await exercise with catching of errors
+  const buttonHelloAsync = document.getElementById("helloAsyncButton");
+  buttonHelloAsync.addEventListener("click", async () => {
+    const showAsyncSuccess = document.getElementById("showAsyncSuccess");
+    const showAsyncError = document.getElementById("showAsyncError");
+    const loading = document.getElementById("loadingAsync");
+    loading.classList.remove("d-none");
+    try {
+      const result = await fetchHelloWorld();
+      loading.classList.add("d-none");
+      showAsyncSuccess.classList.remove("d-none");
+      showAsyncSuccess.innerText = result;
+      console.log(result);
+    } catch (error) {
+      loading.classList.add("d-none");
+      showAsyncError.classList.remove("d-none");
+      showAsyncError.innerText = "An error occurred: " + error.message;
+      console.error("Error occurred:", error.message);
+    }
+  });
+
+  // Promise.all exercise
+  const buttonPromiseAll = document.getElementById("promiseAllButton");
+  buttonPromiseAll.addEventListener("click", () => {
+    runPromises();
   });
 };

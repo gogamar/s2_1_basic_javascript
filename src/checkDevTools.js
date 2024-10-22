@@ -11,7 +11,7 @@
 
     if (!devtools.open && !alerted) {
       alerted = true;
-      alert("Please open the developer tools (right-click and select 'Inspect', then 'Console')!");
+      alert("Si us plau, obre les eines de desenvolupament (fés clic amb el botó dret i selecciona 'Inspeccionar', i ves a la 'Consola')!");
     }
   };
   setInterval(detectDevTools, checkInterval);
