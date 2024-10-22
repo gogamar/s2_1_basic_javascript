@@ -260,7 +260,7 @@
             </div>
           </div>
 
-          <!-- Array of squares -->
+          <!-- Filter include only even numbers -->
           <div>
             <div class="input-group">
               <span class="input-group-text" id="arrayToEven">[1, 2, 3, 4]</span>
@@ -297,6 +297,51 @@
             <div class="input-group">
               <span class="input-group-text" id="arrayEverySome">[11, 12, 13, 14]</span>
               <button id="everySomeButton" class="btn btn-outline-secondary">Determina si tots o alguns son > 10</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row d-flex justify-content-center">
+        <h5 class="text-center text-secondary mt-5">Array loops</h5>
+        <div class="col-lg-6 d-flex flex-column gap-4 border rounded p-4">
+          <!-- Print Names with forEach and for...of -->
+          <div>
+            <div class="input-group">
+              <span class="input-group-text" id="arrayNames">["Anna", "Bernat", "Clara"]</span>
+              <button id="printForEachButton" class="btn btn-outline-secondary">Imprimeix forEach</button>
+              <button id="printForOfButton" class="btn btn-outline-secondary">Imprimeix for-of</button>
+            </div>
+          </div>
+
+          <!-- Filter include only even numbers -->
+          <div>
+            <div class="input-group">
+              <span class="input-group-text" id="arrayOnlyEven">[1, 2, 3, 4, 5, 6]</span>
+              <button id="evenOnlyButton" class="btn btn-outline-secondary">Crear nova array que només contingui els números parells</button>
+            </div>
+          </div>
+
+          <!-- Print key-value pairs with for-in -->
+          <div>
+            <div class="input-group">
+              <span class="input-group-text" id="objKeyValue">{ "nom": "Ona", "edat": 25, "ciutat": "Barcelona" }</span>
+              <button id="keyValueButton" class="btn btn-outline-secondary">Clau i valor amb for-in</button>
+            </div>
+          </div>
+
+          <!-- Print array until 5 -->
+          <div>
+            <div class="input-group">
+              <span class="input-group-text" id="arrayPrintFive">[1, 2, 3, 4, 5, 6]</span>
+              <button id="printTillFiveButton" class="btn btn-outline-secondary">Imprimir amb for-of fins a trobar el número 5</button>
+            </div>
+          </div>
+
+          <!-- Print elements and their index -->
+          <div>
+            <div class="input-group">
+              <span class="input-group-text" id="arrayPrintIndex">["Anna", "Bernat", "Clara"]</span>
+              <button id="printIndexButton" class="btn btn-outline-secondary">Imprimir amb for-of elements i el seu index</button>
             </div>
           </div>
         </div>
