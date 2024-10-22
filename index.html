@@ -69,6 +69,7 @@
             </div>
             <div class="form-text text-muted">Entra la teva edat per saber si pots conduir.</div>
           </div>
+
           <!-- Compare 2 numbers -->
           <div>
             <div class="input-group">
@@ -106,6 +107,70 @@
               <button id="parOImparButton" class="btn btn-outline-secondary">Comprova</button>
             </div>
             <div class="form-text text-muted">Introdueix números separats per comes i comprova si són imparells o parells.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row d-flex justify-content-center">
+        <h5 class="text-center text-secondary mt-5">Callbacks</h5>
+        <div class="col-lg-6 d-flex flex-column gap-4 border rounded p-4">
+          <!-- Process input by callback function -->
+          <div class="input-group">
+            <input type="number" id="numToProcess" value="5" class="form-control" />
+            <select class="form-select" id="callbackName">
+              <option value="potConduir">Pot conduir?</option>
+              <option value="classificarNumero">Classificar Número</option>
+            </select>
+            <button id="processarButton" class="btn btn-outline-secondary">Processar</button>
+          </div>
+
+          <!-- Math operations -->
+          <div class="input-group">
+            <input type="number" id="numMath1" value="5" class="form-control" />
+            <input type="number" id="numMath2" value="7" class="form-control" />
+            <select class="form-select" id="mathCallback">
+              <option value="add">Sumar</option>
+              <option value="subtract">Restar</option>
+              <option value="multiply">Multiplicar</option>
+              <option value="divide">Dividir</option>
+            </select>
+            <button id="calculadoraButton" class="btn btn-outline-secondary">Processar</button>
+          </div>
+
+          <!-- Wait and then greet -->
+          <div>
+            <div class="input-group">
+              <span class="input-group-text">Canvia el nom</span>
+              <input type="text" id="nomPersona" value="Joan" class="form-control" />
+              <button id="esperarSaludarButton" class="btn btn-outline-secondary">Saluda</button>
+            </div>
+            <div class="form-text text-muted">Saludarem a la persona després de 2 segons.</div>
+          </div>
+
+          <!-- Process elements of array by callback -->
+          <div>
+            <div class="input-group">
+              <input type="text" id="elsToProcess" value="7, 0, Barcelona, blau" class="form-control" />
+              <select class="form-select" id="processElementsCallback">
+                <option value="printAfter3Seconds">Imprimir després de 3 seg.</option>
+                <option value="includeInPhrase">Incloure en una frase</option>
+              </select>
+              <button id="processElementsButton" class="btn btn-outline-secondary">Processar</button>
+            </div>
+            <div class="form-text text-muted">Introdueix diferents elements separats per comes.</div>
+          </div>
+
+          <!-- Process a string by callback -->
+          <div>
+            <div class="input-group">
+              <input type="text" id="stringToProcess" value="Example text" class="form-control" />
+              <select class="form-select" id="processStringCallback">
+                <option value="printString">Imprimir en majúscules</option>
+                <option value="encryptString">Encriptar la frase</option>
+              </select>
+              <button id="processStringButton" class="btn btn-outline-secondary">Processar</button>
+            </div>
+            <div class="form-text text-muted">Introdueix una frase.</div>
           </div>
         </div>
       </div>
