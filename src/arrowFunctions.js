@@ -1,26 +1,22 @@
 // exercise 1
-const add = (a, b) => a + b;
-console.log(add(4, 5));
+export const add = (a, b) => a + b;
 
 // exercise 2
-const randomNumber = () => Math.floor(Math.random() * 101);
-console.log(randomNumber());
+export const randomNumber = () => Math.floor(Math.random() * 101);
 
 // exercise 3
-class Person {
+export class Person {
   constructor(name) {
     this.name = name;
   }
 
-  greet = () => console.log(`Hola, ${this.name}`);
+  greet() {
+    console.log(`Hola ${this.name}`);
+  }
 }
 
-const marc = new Person("Marc");
-
-marc.greet();
-
 // exercise 4
-const printNumbers = (arr) => {
+export const printNumbers = (arr) => {
   for (let i = 0; i < arr.length; i++) {
     (() => {
       console.log(arr[i]);
@@ -28,12 +24,7 @@ const printNumbers = (arr) => {
   }
 };
 
-const numbers = [1, 2, 3, 4, 5];
-printNumbers(numbers);
-
 // exercise 5
-const printAfter3Seconds = () => {
-  setTimeout(() => console.log("Hola, després de 3 segons"), 3000);
+export const printAfter3Seconds = (message) => {
+  setTimeout(() => console.log(message), 3000);
 };
-
-printAfter3Seconds();
