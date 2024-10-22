@@ -2,6 +2,7 @@ import { add, randomNumber, Person, printNumbers, printAfter3Seconds } from "./a
 import { potConduir, compararNums, classificarNumero, trobarMaxim, parOImpar } from "./ternary.js";
 import { processar, subtract, multiply, divide, calculadora, esperarISaludar, processarElements, includeInPhrase, processarCadena, printString, encryptString } from "./callbacks.js";
 import { combineArrays, suma, createObject, copyObject, modifyCopy, assignVariables, showData, mergeObjects } from "./restSpread.js";
+import { squareArray, onlyEvenNumbers, findHigherTen, reduceToSum, filterAndSum, everyHigherTen, someHigherTen } from "./arrayTransformations.js";
 
 const callbackMap = {
   potConduir,
@@ -289,5 +290,61 @@ export const setupEventListeners = () => {
     };
     console.log("Dades professionals:", professionalData);
     console.log("Dades fusionades:", mergeObjects(personalData, professionalData));
+  });
+
+  // Array of squares
+  const buttonSquares = document.getElementById("squaresButton");
+  buttonSquares.addEventListener("click", () => {
+    const arrayText = document.getElementById("arrayToSquare").innerText;
+    const array = JSON.parse(arrayText);
+
+    console.log("Aquests números son els seus quadrats:", squareArray(array));
+  });
+
+  // Array of only even numbers
+  const buttonEvenNumbers = document.getElementById("evenNumbersButton");
+  buttonEvenNumbers.addEventListener("click", () => {
+    const arrayText = document.getElementById("arrayToEven").innerText;
+    const array = JSON.parse(arrayText);
+
+    // console.log(`Aquests números son parells: ${onlyEvenNumbers(array)}`);
+    console.log("Aquests números son parells:", onlyEvenNumbers(array));
+  });
+
+  // Find higher than 10
+  const buttonHigherTen = document.getElementById("higherTenButton");
+  buttonHigherTen.addEventListener("click", () => {
+    const arrayText = document.getElementById("arrayToFind").innerText;
+    const array = JSON.parse(arrayText);
+
+    console.log("El primer número major a 10:", findHigherTen(array));
+  });
+
+  // Reduce to sum
+  const buttonReduce = document.getElementById("reduceButton");
+  buttonReduce.addEventListener("click", () => {
+    const arrayText = document.getElementById("arrayToReduce").innerText;
+    const array = JSON.parse(arrayText);
+
+    console.log("La suma de tots els números és:", reduceToSum(array));
+  });
+
+  // Filter, multiply and sum
+  const buttonFilterSum = document.getElementById("filterSumButton");
+  buttonFilterSum.addEventListener("click", () => {
+    const arrayText = document.getElementById("arrayToFilter").innerText;
+    const array = JSON.parse(arrayText);
+
+    console.log("La suma dels números >=10 multiplicats per 2 és:", filterAndSum(array));
+  });
+
+  // Find greater than 10 with every and some
+  const buttonEverySome = document.getElementById("everySomeButton");
+  buttonEverySome.addEventListener("click", () => {
+    const arrayText = document.getElementById("arrayEverySome").innerText;
+    const array = JSON.parse(arrayText);
+
+    console.log("Tots els números son majors a 10?", everyHigherTen(array));
+    console.log("Algun número és major a 10?", someHigherTen(array));
   });
 };

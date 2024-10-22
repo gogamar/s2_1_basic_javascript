@@ -17,7 +17,6 @@ export const copyObject = (object) => ({ ...object });
 export const modifyCopy = (name, age, object) => ({ ...object, name, age });
 
 // exercise 4
-
 export const assignVariables = (array) => {
   const [first, second, ...rest] = array;
   console.log(`El primer element es: ${first}`);
